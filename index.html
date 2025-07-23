@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生日快乐！🎉</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 背景音乐 -->
+    <audio id="bgMusic" loop>
+        <source src="bensound-close.mp3" type="audio/mpeg">
+    </audio>
+    
+    <!-- 音乐控制按钮 -->
+    <div class="music-control">
+        <button id="musicToggle" class="music-btn">🎵</button>
+    </div>
+
+    <!-- 烟花容器 -->
+    <div id="fireworks"></div>
+
+    <!-- 主要内容 -->
+    <div class="container">
+        <!-- 生日蛋糕 -->
+        <div class="cake-container">
+            <div class="cake">
+                <div class="plate"></div>
+                <div class="layer layer-bottom"></div>
+                <div class="layer layer-middle"></div>
+                <div class="layer layer-top"></div>
+                <div class="icing"></div>
+                <div class="candle">
+                    <div class="flame"></div>
+                </div>
+                <div class="candle">
+                    <div class="flame"></div>
+                </div>
+                <div class="candle">
+                    <div class="flame"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 祝福文字 -->
+        <div class="birthday-text">
+            <h1 class="title">Happy Birthday!</h1>
+            <div class="message">
+                <p class="custom-message">师兄生日快乐！</p>
+                <p class="custom-message">工作天天开心，早日退休，全职科研</p>
+                <p class="custom-message">身体健康，一切顺利</p>
+            </div>
+        </div>
+
+        <!-- 气球 -->
+        <div class="balloons">
+            <div class="balloon balloon1">🎈</div>
+            <div class="balloon balloon2">🎈</div>
+            <div class="balloon balloon3">🎈</div>
+            <div class="balloon balloon4">🎈</div>
+            <div class="balloon balloon5">🎈</div>
+        </div>
+
+        <!-- 星星装饰 -->
+        <div class="stars">
+            <div class="star">⭐</div>
+            <div class="star">⭐</div>
+            <div class="star">⭐</div>
+            <div class="star">⭐</div>
+            <div class="star">⭐</div>
+            <div class="star">⭐</div>
+            <div class="star">⭐</div>
+            <div class="star">⭐</div>
+        </div>
+    </div>
+
+    <!-- 编辑按钮 -->
+    <div class="edit-section">
+        <button id="editBtn" class="edit-btn">✏️ 编辑祝福语</button>
+    </div>
+
+    <!-- 编辑模态框 -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <h3>编辑祝福语</h3>
+            <textarea id="messageInput" placeholder="在这里输入你的祝福语...">师兄生日快乐！
+工作天天开心，早日退休，全职科研
+身体健康，一切顺利</textarea>
+            <div class="modal-buttons">
+                <button id="saveBtn">保存</button>
+                <button id="cancelBtn">取消</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,440 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* 音乐控制按钮 */
+.music-control {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.music-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.music-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
+}
+
+/* 主容器 */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+/* 生日蛋糕样式 */
+.cake-container {
+    margin-bottom: 40px;
+    animation: cakeFloat 3s ease-in-out infinite;
+}
+
+.cake {
+    position: relative;
+    width: 200px;
+    height: 200px;
+}
+
+.plate {
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 220px;
+    height: 20px;
+    background: linear-gradient(45deg, #ddd, #fff);
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.layer {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.layer-bottom {
+    bottom: 10px;
+    width: 180px;
+    height: 60px;
+    background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+}
+
+.layer-middle {
+    bottom: 70px;
+    width: 140px;
+    height: 50px;
+    background: linear-gradient(45deg, #4ecdc4, #44a08d);
+}
+
+.layer-top {
+    bottom: 120px;
+    width: 100px;
+    height: 40px;
+    background: linear-gradient(45deg, #ffe66d, #ffd93d);
+}
+
+.icing {
+    position: absolute;
+    bottom: 160px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 20px;
+    background: linear-gradient(45deg, #ff9ff3, #f368e0);
+    border-radius: 50px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.candle {
+    position: absolute;
+    bottom: 180px;
+    width: 8px;
+    height: 30px;
+    background: linear-gradient(45deg, #fff, #f8f9fa);
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.candle:nth-child(6) {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.candle:nth-child(7) {
+    left: 40%;
+    transform: translateX(-50%);
+}
+
+.candle:nth-child(8) {
+    left: 60%;
+    transform: translateX(-50%);
+}
+
+.flame {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 12px;
+    height: 12px;
+    background: radial-gradient(circle, #ffd700, #ff6b35, #ff4757);
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    animation: flicker 0.5s ease-in-out infinite alternate;
+}
+
+/* 蛋糕动画 */
+@keyframes cakeFloat {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes flicker {
+    0% { transform: translateX(-50%) scale(1); opacity: 1; }
+    100% { transform: translateX(-50%) scale(1.1); opacity: 0.8; }
+}
+
+/* 祝福文字样式 */
+.birthday-text {
+    text-align: center;
+    margin-bottom: 40px;
+    z-index: 2;
+}
+
+.title {
+    font-size: 4rem;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    margin-bottom: 20px;
+    animation: titleGlow 2s ease-in-out infinite alternate;
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #ffe66d, #ff9ff3);
+    background-size: 400% 400%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: titleGlow 2s ease-in-out infinite alternate, gradientShift 3s ease infinite;
+}
+
+.message {
+    font-size: 1.5rem;
+    color: #fff;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    line-height: 1.8;
+}
+
+.custom-message {
+    margin: 10px 0;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+.custom-message:nth-child(1) { animation-delay: 0.2s; }
+.custom-message:nth-child(2) { animation-delay: 0.4s; }
+.custom-message:nth-child(3) { animation-delay: 0.6s; }
+.custom-message:nth-child(4) { animation-delay: 0.8s; }
+
+@keyframes titleGlow {
+    0% { text-shadow: 2px 2px 4px rgba(0,0,0,0.3), 0 0 20px rgba(255,255,255,0.5); }
+    100% { text-shadow: 2px 2px 4px rgba(0,0,0,0.3), 0 0 30px rgba(255,255,255,0.8); }
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 气球样式 */
+.balloons {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.balloon {
+    position: absolute;
+    font-size: 3rem;
+    animation: float 6s ease-in-out infinite;
+}
+
+.balloon1 { left: 10%; animation-delay: 0s; }
+.balloon2 { left: 20%; animation-delay: 1s; }
+.balloon3 { left: 70%; animation-delay: 2s; }
+.balloon4 { left: 80%; animation-delay: 3s; }
+.balloon5 { left: 90%; animation-delay: 4s; }
+
+@keyframes float {
+    0%, 100% { transform: translateY(100vh) rotate(0deg); }
+    50% { transform: translateY(-100px) rotate(10deg); }
+}
+
+/* 星星样式 */
+.stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.star {
+    position: absolute;
+    font-size: 1.5rem;
+    color: #fff;
+    animation: twinkle 2s ease-in-out infinite;
+}
+
+.star:nth-child(1) { top: 10%; left: 15%; animation-delay: 0s; }
+.star:nth-child(2) { top: 20%; left: 85%; animation-delay: 0.3s; }
+.star:nth-child(3) { top: 30%; left: 25%; animation-delay: 0.6s; }
+.star:nth-child(4) { top: 40%; left: 75%; animation-delay: 0.9s; }
+.star:nth-child(5) { top: 50%; left: 35%; animation-delay: 1.2s; }
+.star:nth-child(6) { top: 60%; left: 65%; animation-delay: 1.5s; }
+.star:nth-child(7) { top: 70%; left: 45%; animation-delay: 1.8s; }
+.star:nth-child(8) { top: 80%; left: 55%; animation-delay: 2.1s; }
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.2); }
+}
+
+/* 编辑按钮 */
+.edit-section {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 1000;
+}
+
+.edit-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    color: #fff;
+}
+
+.edit-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.05);
+}
+
+/* 模态框样式 */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    margin: 15% auto;
+    padding: 30px;
+    border-radius: 15px;
+    width: 80%;
+    max-width: 500px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.modal-content h3 {
+    color: #fff;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+#messageInput {
+    width: 100%;
+    height: 150px;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    resize: vertical;
+    background: rgba(255,255,255,0.9);
+    margin-bottom: 20px;
+}
+
+.modal-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.modal-buttons button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+#saveBtn {
+    background: #4ecdc4;
+    color: #fff;
+}
+
+#saveBtn:hover {
+    background: #44a08d;
+    transform: scale(1.05);
+}
+
+#cancelBtn {
+    background: #ff6b6b;
+    color: #fff;
+}
+
+#cancelBtn:hover {
+    background: #ff5252;
+    transform: scale(1.05);
+}
+
+/* 烟花样式 */
+.firework {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    animation: explode 1s ease-out forwards;
+}
+
+@keyframes explode {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(20);
+        opacity: 0;
+    }
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .title {
+        font-size: 2.5rem;
+    }
+    
+    .message {
+        font-size: 1.2rem;
+    }
+    
+    .cake {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .layer-bottom {
+        width: 135px;
+        height: 45px;
+    }
+    
+    .layer-middle {
+        width: 105px;
+        height: 37px;
+    }
+    
+    .layer-top {
+        width: 75px;
+        height: 30px;
+    }
+    
+    .balloon {
+        font-size: 2rem;
+    }
+}
